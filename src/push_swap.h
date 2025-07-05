@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:15:00 by diade-so          #+#    #+#             */
-/*   Updated: 2025/07/05 19:33:37 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 19:55:26 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int			is_valid_int(char *str);
 int			is_valid_array(char **arr);
 
 // prototypes for duplicate.c
-static void		init_table(t_hash *table, int table_size);
+//static void		init_table(t_hash *table, int table_size);
 bool		check_duplicate(t_node *head, int size, int min);
 
 // prototypes for array_utils.c
