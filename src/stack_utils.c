@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:11:52 by diade-so          #+#    #+#             */
-/*   Updated: 2025/07/05 18:26:26 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 22:26:35 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,7 @@ t_stack	*create_stack(void)
 
 	s = (t_stack *)malloc(sizeof (t_stack));
 	if (!s)
-	{
-		printf("Error\n");
-		exit (1);
-	}
+		return (NULL);
 	init_stack(s);
 	return (s);
 }

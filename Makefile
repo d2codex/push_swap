@@ -6,7 +6,7 @@
 #    By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/18 15:38:17 by diade-so          #+#    #+#              #
-#    Updated: 2025/07/05 19:34:27 by diade-so         ###   ########.fr        #
+#    Updated: 2025/07/05 22:35:36 by diade-so         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,11 +36,10 @@ LIBFT_DIR = libft
 #                                Source Files                                  #
 # **************************************************************************** #
 
-SRC = $(addprefix $(SRC_DIR)/, main.c array_utils.c print_utils.c \
+SRC = $(addprefix $(SRC_DIR)/, main.c array_utils.c duplicate.c \
 	parse.c validate.c memory_utils.c stack_utils.c swap.c \
 	push.c push_utils.c rotate.c reverse_rotate.c sort_small.c \
-	sort_large.c calculations1.c calculations2.c calculations3.c \
-	duplicate.c)
+	sort_large.c calculations1.c calculations2.c calculations3.c)
 
 # **************************************************************************** #
 #                                Object Files                                  #

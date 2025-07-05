@@ -81,14 +81,3 @@ int	is_valid_array(char **arr)
 	}
 	return (1);
 }
-
-void print_hash_table(t_hash *table, int table_size)
-{
-    for (int i = 0; i < table_size; i++)
-    {
-        if (table[i].seen)
-            printf("Index %d: %d\n", i, table[i].value);
-        else
-            printf("Index %d: [empty]\n", i);
-    }
-}

@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:13:41 by diade-so          #+#    #+#             */
-/*   Updated: 2025/05/02 17:24:50 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 22:30:18 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,19 @@ void	print_stack(const char *name, t_stack *s)
 	if (i != s->size)
 		printf("[Warning: printed %d nodes, expected %d]", i, s->size);
 	printf("\n");
+}
+
+void	print_hash_table(t_hash *table, int table_size)
+{
+	int	i;
+
+	i = 0;
+	while (i < table_size)
+    	{
+        	if (table[i].seen)
+            		printf("Index %d: %d\n", i, table[i].value);
+        	else
+			printf("Index %d: [empty]\n", i);
+		i++;
+    	}
 }

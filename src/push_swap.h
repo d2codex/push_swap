@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:15:00 by diade-so          #+#    #+#             */
-/*   Updated: 2025/07/05 19:55:26 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 22:36:01 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,9 @@ typedef struct s_dup_check
 }	t_dup_check;
 
 // prototype for print_utils.c
-void		print_int_arr(int count, int *arr);
-void		print_stack(const char *name, t_stack *s);
+//void		print_int_arr(int count, int *arr);
+//void		print_stack(const char *name, t_stack *s);
+//void    print_hash_table(t_hash *table, int table_size);
 
 // prototype for validate.c
 int			is_valid_input(char *str);

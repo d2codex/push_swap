@@ -1,5 +1,5 @@
 *.swp
 
 push_swap_visualizer/
-
+print_utils.c
 checker

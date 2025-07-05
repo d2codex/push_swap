@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:08:18 by diade-so          #+#    #+#             */
-/*   Updated: 2025/07/05 13:06:35 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 22:22:20 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ int	get_insert_pos_b(t_stack *b, int value)
 		curr = curr->next;
 		pos++;
 	}
-	write(2, "Error: No valid insert position found in B\n", 43);
-	exit(1);//cannot exit here need to free first before exit
 	return (0);
 }
 

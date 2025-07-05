@@ -6,12 +6,11 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 17:18:08 by diade-so          #+#    #+#             */
-/*   Updated: 2025/05/02 17:16:29 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 22:23:46 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// updates when a new node is added to that stack
 void	update_min_max(t_stack *s, int value)
 {
 	if (s->size == 1)
@@ -28,7 +27,6 @@ void	update_min_max(t_stack *s, int value)
 	}
 }
 
-// update stack min and max when a node has been pushed from the stack
 void	update_min_max_after_push(t_stack *s)
 {
 	int		i;

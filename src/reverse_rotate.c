@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 20:10:59 by diade-so          #+#    #+#             */
-/*   Updated: 2025/05/10 18:40:36 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 22:24:09 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@ void	reverse_rotate(t_stack *s)
 {
 	if (s->size < 2)
 		return ;
-/*	s->head = s->tail;
-	s->tail = s->tail->prev;
-	s->head->prev = s->tail;
-	s->tail->next = s->head;
-*/
 	s->head = s->head->prev;
 	s->tail = s->tail->prev;
 }
