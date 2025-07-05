@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_input1.c                                  :+:      :+:    :+:   */
+/*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -91,54 +91,4 @@ void print_hash_table(t_hash *table, int table_size)
         else
             printf("Index %d: [empty]\n", i);
     }
-}
-
-void	init_table(t_hash *table, int table_size)
-{
-	int	i;
-
-	i = 0;
-	while (i < table_size)
-	{
-		table[i].seen = 0;
-		i++;
-	}
-}
-
-bool	check_duplicate(t_node *head, int size, int min)
-{
-	t_hash	*table;
-	t_node	*curr;
-	int	key;
-	int	index;
-	int	i;
-
-	table = malloc((size * 2) * sizeof (t_hash));
-	if (!table)
-		exit (1);
-	curr = head;
-	init_table(table, size * 2);
-	i = 0;
-	while (i < size)
-	{
-		key = curr->value - min;
-//		index = key % (size * 2);
-		index = ((key % (size * 2)) + (size * 2)) % (size * 2);
-		while (table[index].seen)
-		{
-			if (table[index].value == curr->value)
-			{
-				write(1, "Error. Duplicate\n", 17);
-				free (table);
-				return (false);
-			}
-			index = (index + 1) % (size * 2);
-		}	
-		table[index].value = curr->value;
-		table[index].seen = 1;
-		curr = curr->next;
-		i++;
-	}
-	free(table);
-	return (true);
 }

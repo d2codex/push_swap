@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:11:52 by diade-so          #+#    #+#             */
-/*   Updated: 2025/05/02 17:18:42 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:26:26 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,28 @@ void	append_node(t_stack *s, int value)
 	s->size++;
 }
 
-int	is_sorted(t_stack *s)
+void	fill_stack(t_stack *s, int *arr, int size)
 {
-	t_node	*current;
+	int	i;
 
-	if (s->size < 2)
-		return (1);
-	current = s->head;
-	while (current->next != s->head)
+	i = 0;
+	while (i < size)
 	{
-		if (current->value > current->next->value)
-			return (0);
-		current = current->next;
+		append_node(s, arr[i]);
+		i++;
 	}
-	return (1);
+}
+
+t_stack	*create_stack(void)
+{
+	t_stack	*s;
+
+	s = (t_stack *)malloc(sizeof (t_stack));
+	if (!s)
+	{
+		printf("Error\n");
+		exit (1);
+	}
+	init_stack(s);
+	return (s);
 }

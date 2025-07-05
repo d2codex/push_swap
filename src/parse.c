@@ -1,51 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_creation.c                                   :+:      :+:    :+:   */
+/*   input_data_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 22:39:49 by diade-so          #+#    #+#             */
-/*   Updated: 2025/07/05 17:22:17 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:36:45 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	fill_stack(t_stack *s, int *arr, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		append_node(s, arr[i]);
-		i++;
-	}
-}
-
-t_stack	*create_stack(void)
-{
-	t_stack	*s;
-
-	s = (t_stack *)malloc(sizeof (t_stack));
-	if (!s)
-	{
-		printf("Error\n");
-		exit (1);
-	}
-	init_stack(s);
-	return (s);
-}
-
-void	init_data(t_input_data *data, t_stack **a, t_stack **b)
+void	init_data(t_input_data *data)
 {
 	data->input_arr = NULL;
 	data->int_arr = NULL;
 	data->size = 0;
-	*a = NULL;
-	*b = NULL;
+	data->a = NULL;
+	data->b = NULL;
 }
 
 char **copy_argv_to_arr(int argc, char **argv)
@@ -75,7 +49,7 @@ char **copy_argv_to_arr(int argc, char **argv)
 	return (input_arr);
 }
 
-char	**get_input_arr(int argc, char **argv)
+char	**get_args(int argc, char **argv)
 {
 	char	**input_arr;
 
@@ -98,4 +72,20 @@ char	**get_input_arr(int argc, char **argv)
 			return (NULL);
 	}
 	return (input_arr);
+}
+
+int	is_sorted(t_stack *s)
+{
+	t_node	*current;
+
+	if (s->size < 2)
+		return (1);
+	current = s->head;
+	while (current->next != s->head)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }

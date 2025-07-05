@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 22:44:37 by diade-so          #+#    #+#             */
-/*   Updated: 2025/07/05 16:47:18 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:38:11 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,6 @@ void	free_str_array(char **arr)
 		i++;
 	}
 	free(arr);
-}
-
-int	perror_and_free(char **strs, int *arr, t_stack *a, t_stack *b)
-{
-	if (strs)
-		free_str_array(strs);
-	if (arr)
-		free(arr);
-	if (a)
-		free_stack (a);
-	if (b)
-		free_stack (b);
-	write(2, "Error\n", 6);
-	return (1);
 }
 
 void	free_stack(t_stack *s)
@@ -64,7 +50,21 @@ void	free_stack(t_stack *s)
 	free(s);
 }
 
-void	free_allocated(char **strs, int *arr, t_stack *a, t_stack *b)
+int	pr_errf(char **strs, int *arr, t_stack *a, t_stack *b)
+{
+	if (strs)
+		free_str_array(strs);
+	if (arr)
+		free(arr);
+	if (a)
+		free_stack (a);
+	if (b)
+		free_stack (b);
+	write(2, "Error\n", 6);
+	return (1);
+}
+
+void	clean(char **strs, int *arr, t_stack *a, t_stack *b)
 {
 	if (a)
 		free_stack(a);

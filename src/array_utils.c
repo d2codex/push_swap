@@ -6,13 +6,13 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:09:27 by diade-so          #+#    #+#             */
-/*   Updated: 2025/07/05 17:22:27 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:07:43 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*str_to_int_array(int size, char **str)
+int	*atoi_arr(int size, char **str)
 {
 	int	i;
 	int	*int_arr;
