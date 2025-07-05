@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:08:18 by diade-so          #+#    #+#             */
-/*   Updated: 2025/05/14 16:56:16 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 13:06:35 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ int	get_insert_pos_b(t_stack *b, int value)
 	{
 		curr_val = curr->value;
 		prev_val = curr->prev->value;
-	//	printf("Current value: %d\n", curr->value);
-	//	printf("Prev value: %d\n", curr->prev->value);
 		if (value > curr_val && value < prev_val)
 			return (pos);
 		if (curr_val == b->max && value < curr_val && value < prev_val)
@@ -40,34 +38,6 @@ int	get_insert_pos_b(t_stack *b, int value)
 	}
 	write(2, "Error: No valid insert position found in B\n", 43);
 	exit(1);//cannot exit here need to free first before exit
-	return (0);
-}
-
-int	get_insert_pos_a(t_stack *a, int value)
-{
-	t_node	*curr;
-	int	pos;
-	int	curr_val;
-	int	prev_val;
-
-	curr = a->head;
-	pos = 0;
-//	if (value <= a->head->value)
-//		return (0);
-	while (pos < a->size)
-	{
-		curr_val = curr->value;
-		prev_val = curr->prev->value;
-		if (value < curr_val && value > prev_val)
-				return (pos);
-		if (prev_val == a->min && value < curr_val && value < prev_val)
-			return (pos);
-		if(prev_val == a->max && value > curr_val && value > prev_val)
-			return (pos);
-
-		curr = curr->next;
-		pos++;
-	}
 	return (0);
 }
 

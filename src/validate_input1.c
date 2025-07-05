@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:04:32 by diade-so          #+#    #+#             */
-/*   Updated: 2025/05/15 16:35:35 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 13:12:38 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,3 @@ bool	check_duplicate(t_node *head, int size, int min)
 	free(table);
 	return (true);
 }
-		
-
-

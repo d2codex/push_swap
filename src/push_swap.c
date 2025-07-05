@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:28:29 by diade-so          #+#    #+#             */
-/*   Updated: 2025/05/13 15:35:21 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 13:07:02 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	if (is_sorted(a))
+	{
+		free_stack(a);
 		return (1);
+	}
 	b = create_stack();
 	push_swap(a, b);
-//	print_stack("a", a);
-//	print_stack("b", b);
 	free_stack(a);
 	free_stack(b);
 	return (0);

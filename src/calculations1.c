@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:36:42 by diade-so          #+#    #+#             */
-/*   Updated: 2025/05/13 18:14:50 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/03 16:09:13 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,8 @@ void	apply_node_costs(t_node *node, int pos, t_stack *a, t_stack *b)
 	int	dir_b;
 
 	insert_pos = get_insert_pos_b(b, node->value);
-//	printf("Debug: node->value = %d, insert_pos = %d\n", node->value, insert_pos);
 	cost_a = calc_rotation_cost(pos, a->size, &dir_a);
 	cost_b = calc_rotation_cost(insert_pos, b->size, &dir_b);
-//	printf("Debug: cost_a = %d, dir_a = %d\n", cost_a, dir_a);
-//	printf("Debug: cost_b = %d, dir_b = %d\n", cost_b, dir_b);
 	node->cost_a = cost_a;
 	node->cost_b = cost_b;
 	node->dir_a = dir_a;
@@ -53,7 +50,6 @@ void	apply_node_costs(t_node *node, int pos, t_stack *a, t_stack *b)
 	}
 	else
 		node->total_cost = cost_a + cost_b;
-//	printf("Debug: node->total_cost = %d\n", node->total_cost);
 }
 
 t_node	*find_best_node(t_stack *a, t_stack *b, int range_max)
@@ -67,10 +63,8 @@ t_node	*find_best_node(t_stack *a, t_stack *b, int range_max)
 	best = NULL;
 	best_cost = INT_MAX;
 	pos = 0;
-//	printf("range_max: %d\n", range_max);
 	while (pos < a->size)
 	{
-	//	printf("Candidate: %d\n", curr->value);
 		apply_node_costs(curr, pos, a, b);
 		if (curr->value <= range_max)
 		{
