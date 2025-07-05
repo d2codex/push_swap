@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 22:39:49 by diade-so          #+#    #+#             */
-/*   Updated: 2025/05/09 17:00:36 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 17:22:17 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,63 @@ t_stack	*create_stack(void)
 	return (s);
 }
 
-t_stack	*valid_and_build_stack(int argc, char **argv)
+void	init_data(t_input_data *data, t_stack **a, t_stack **b)
+{
+	data->input_arr = NULL;
+	data->int_arr = NULL;
+	data->size = 0;
+	*a = NULL;
+	*b = NULL;
+}
+
+char **copy_argv_to_arr(int argc, char **argv)
 {
 	char	**input_arr;
-	int		*int_arr;
-	int		size;
-	t_stack	*s;
+	int	i;
+
+	if (argc < 2)
+		return (NULL);
+	input_arr = malloc(sizeof(char *) * argc);
+	if (!input_arr)
+		return (NULL);
+	i = 1;
+	while (i < argc)
+	{
+		input_arr[i - 1] = ft_strdup(argv[i]);
+		if (!input_arr[i - 1])
+		{
+			while (--i > 0)
+				free(input_arr[i - 1]);
+			free(input_arr);
+			return (NULL);
+		}
+		i++;
+	}
+	input_arr[i - 1] = NULL;
+	return (input_arr);
+}
+
+char	**get_input_arr(int argc, char **argv)
+{
+	char	**input_arr;
 
 	if (argc < 2)
 		return (NULL);
 	if (argc == 2)
-		input_arr = validate_single_input(argv[1]);
+	{
+		input_arr = ft_split(argv[1], ' ');
+		if (!input_arr || !input_arr[0])
+		{
+			if (input_arr)
+				free_str_array(input_arr);
+			return (NULL);
+		}
+	}
 	else
-		input_arr = validate_multiple_input(argv + 1);
-	size = count_elements(input_arr);
-	int_arr = str_to_int_array(size, input_arr);
-	if (!int_arr)
-		error_exit(input_arr, NULL);
-	s = create_stack();
-	fill_stack(s, int_arr, size);
-	if (argc == 2)
-		free_str_array(input_arr);
-	free(int_arr);
-	return (s);
+	{
+		input_arr = copy_argv_to_arr(argc, argv);
+		if (!input_arr)
+			return (NULL);
+	}
+	return (input_arr);
 }

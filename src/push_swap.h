@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:15:00 by diade-so          #+#    #+#             */
-/*   Updated: 2025/07/05 13:10:31 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/05 17:22:46 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ typedef struct	s_hash
 	char	seen;
 }	t_hash;
 
+typedef struct s_input_data
+{
+	char	**input_arr;
+	int	*int_arr;
+	int	size;
+}	t_input_data;
+
 // prototype for print_utils.c
 void		print_int_arr(int count, int *arr);
 void		print_stack(const char *name, t_stack *s);
@@ -59,11 +66,6 @@ int			is_valid_int(char *str);
 int			is_valid_array(char **arr);
 void		init_table(t_hash *table, int table_size);
 bool		check_duplicate(t_node *head, int size, int min);
-
-//prototypes for validate_input2.c
-char		**validate_single_input(char *input_str);
-char		**validate_multiple_input(char **argv);
-char		**validate_input(int argc, char **argv);
 
 // prototypes for array_utils.c
 int			*str_to_int_array(int size, char **str);
@@ -77,13 +79,16 @@ void		append_node(t_stack *s, int value);
 // prototypes for stack_creation.c
 void		fill_stack(t_stack *s, int *arr, int size);
 t_stack		*create_stack(void);
-t_stack		*valid_and_build_stack(int argc, char **argv);
+void    init_data(t_input_data *data, t_stack **a, t_stack **b);
+char **copy_argv_to_arr(int argc, char **argv);
+char    **get_input_arr(int argc, char **argv);
 int			is_sorted(t_stack *s);
 
 // prototypes for memory_utils.c
 void		free_str_array(char **arr);
-void		error_exit(char **strs, int *arr);
+int     perror_and_free(char **strs, int *arr, t_stack *a, t_stack *b);
 void		free_stack(t_stack *s);
+void    free_allocated(char **strs, int *arr, t_stack *a, t_stack *b);
 
 // protoypes for swap.c operations
 void		swap(t_stack *s);
