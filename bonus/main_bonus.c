@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 12:55:30 by diade-so          #+#    #+#             */
-/*   Updated: 2025/07/06 15:41:57 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/06 23:26:53 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	init_data(&d);
 	d.input_arr = get_args(ac, av);
 	if (!d.input_arr)
-		return (1);
+		return (pr_errf(NULL, NULL, NULL, NULL), 1);
 	if (!is_valid_array(d.input_arr))
 		return (pr_errf(d.input_arr, NULL, NULL, NULL), 1);
 	d.size = count_elements(d.input_arr);

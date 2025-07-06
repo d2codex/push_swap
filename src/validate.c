@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:04:32 by diade-so          #+#    #+#             */
-/*   Updated: 2025/07/05 13:12:38 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/06 23:14:53 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	is_valid_input(char *str)
 	int	i;
 
 	i = 0;
-	if (!str)
+	if (!str || !*str)
 		return (0);
 	if (str[i] == '+' || str[i] == '-')
 		i++;

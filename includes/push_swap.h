@@ -6,7 +6,7 @@
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:15:00 by diade-so          #+#    #+#             */
-/*   Updated: 2025/07/05 22:36:01 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/06 23:17:54 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ t_stack         *create_stack(void);
 // prototypes for parse.c
 void    init_data(t_input_data *data);
 char	**copy_argv_to_arr(int argc, char **argv);
+int     is_whitespace_only(char *str);
 char    **get_args(int argc, char **argv);
 int                     is_sorted(t_stack *s);
 

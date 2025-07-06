@@ -2,4 +2,5 @@
 
 push_swap_visualizer/
 src/print_utils.c
+test_500.sh
 checker

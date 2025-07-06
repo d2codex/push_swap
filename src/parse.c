@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_data_utils.c                                 :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diade-so <diade-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 22:39:49 by diade-so          #+#    #+#             */
-/*   Updated: 2025/07/05 18:36:45 by diade-so         ###   ########.fr       */
+/*   Updated: 2025/07/06 23:23:36 by diade-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,22 @@ char **copy_argv_to_arr(int argc, char **argv)
 	return (input_arr);
 }
 
+int	is_whitespace_only(char *str)
+{
+	int	i;
+
+	if (!str || !*str)
+		return (0);
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isspace(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 char	**get_args(int argc, char **argv)
 {
 	char	**input_arr;
@@ -57,6 +73,8 @@ char	**get_args(int argc, char **argv)
 		return (NULL);
 	if (argc == 2)
 	{
+		if (!argv[1] || is_whitespace_only(argv[1]))
+			return (NULL);
 		input_arr = ft_split(argv[1], ' ');
 		if (!input_arr || !input_arr[0])
 		{
